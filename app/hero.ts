@@ -10,6 +10,7 @@ export class Hero {
   subscribeDay:string;
   pictureUrlSmall:string;
   isLog:boolean;
+  imageStr64:string;
 
   constructor()
   {}

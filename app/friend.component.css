@@ -1,0 +1,37 @@
+<div *ng-for="#el of list; #idx = index">
+<div style="background-color:red" *ngIf="hero">
+  <img src={{hero.pictureUrlSmall}}>
+  <h2>{{hero.userName}} details!</h2>
+  <div>
+    <label>id: </label>{{hero.id}}
+  </div>
+  <div>
+    <label>userName: </label>{{hero.userName}}
+  </div>
+  <div>
+    <label>token: </label>{{hero.token}}
+  </div>
+  <div>
+    <label>firstName: </label>
+    <input [(ngModel)]="hero.firstName" placeholder="firstName" />
+  </div>
+  <div>
+    <label>lastName: </label>
+    <input [(ngModel)]="hero.lastName" placeholder="lastName" />
+  </div>
+  <div>
+    <label>birthday: </label>
+    <input [(ngModel)]="hero.birthday" placeholder="birthday" />
+  </div>
+  <div>
+  <label>email: </label>
+    <input [(ngModel)]="hero.email" placeholder="email" />
+  </div>
+  <div>
+    <label>subscribeDay: </label>{{hero.subscribeDay}}
+  </div>
+  <button (click)="goBack()">Back and save</button>
+  <button (click)="reset()">Reset</button>
+  <button (click)="delete()">Delete my account</button>
+</div>
+

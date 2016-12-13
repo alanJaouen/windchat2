@@ -1,4 +1,5 @@
 import { Hero } from './hero';
 
-export var HEROES: Hero = new Hero("void","void");
+export var HEROES: Hero = new Hero();
+export var FRIEN: Hero[];
 

@@ -28,3 +28,6 @@ button:disabled {
   cursor: auto;
 }
 
+body {
+  margin: 0;
+}

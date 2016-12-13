@@ -16,6 +16,7 @@ import { HeroService }  from './hero.service';
 })
 export class LoginFormComponent implements OnInit {
   hero: Hero;
+  friends: Hero[];
 
   constructor(
     private heroService: HeroService,
@@ -30,6 +31,9 @@ export class LoginFormComponent implements OnInit {
     this.route.params
       .switchMap((params: Params) => this.heroService.getHero())
       .subscribe(hero => this.hero = hero);
+          this.route.params
+      .switchMap((params: Params) => this.heroService.getHeroes())
+      .subscribe(friends => this.friends = friends);
   }
 
   goBack(): void {
@@ -83,8 +87,13 @@ export class LoginFormComponent implements OnInit {
 
               this.hero.isLog=true;
               console.log( this.hero.email);
+
+              
           }, error => {
               console.log(JSON.stringify(error.json()));
           });
+
+
+     
     }
 }

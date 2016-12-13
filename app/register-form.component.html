@@ -1,30 +1,93 @@
 
     <div class="container">
-        <h1>Login Form</h1>
+        <h1>Register Form</h1>
         <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
          {{diagnostic}}
         <div class="form-group">
-        <label for="name">email</label>
-        <input type="text" class="form-control" id="name"
-               required
-               [(ngModel)]="model.name" name="name"
-               #name="ngModel" >
-        <div [hidden]="name.valid || name.pristine"
-             class="alert alert-danger">
-          email is required
-        </div>
-        </div>
-        <div class="form-group">
-        <label for="password">password</label>
-        <input type="text"  class="form-control" id="password"
+            <label for="email">email</label>
+            <input type="text" class="form-control" id="email"
                 required
-                [(ngModel)]="model.password" name="password"
-                #password="ngModel">
-        <div [hidden]="password.valid || password.pristine"
-            class="alert alert-danger">
-            password is required
+                [(ngModel)]="model.email" name="email"
+                #email="ngModel" >
+            <div [hidden]="email.valid || email.pristine"
+                class="alert alert-danger">
+            email is required
+            </div>
         </div>
+
+        <div class="form-group">
+            <label for="userName">userName</label>
+            <input type="text" class="form-control" id="userName"
+                required
+                [(ngModel)]="model.userName" name="userName"
+                #userName="ngModel" >
+            <div [hidden]="userName.valid || userName.pristine"
+                class="alert alert-danger">
+            userName is required
+            </div>
         </div>
+
+        <div class="form-group">
+            <label for="password">password</label>
+            <input type="text"  class="form-control" id="password"
+                    required
+                    [(ngModel)]="model.password" name="password"
+                    #password="ngModel">
+            <div [hidden]="password.valid || password.pristine"
+                class="alert alert-danger">
+                password is required
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label for="firstName">firstName</label>
+            <input type="text"  class="form-control" id="firstName"
+                    required
+                    [(ngModel)]="model.firstName" name="firstName"
+                    #firstName="ngModel">
+            <div [hidden]="firstName.valid || firstName.pristine"
+                class="alert alert-danger">
+                firstName is required
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label for="lastName">lastName</label>
+            <input type="text"  class="form-control" id="lastName"
+                    required
+                    [(ngModel)]="model.lastName" name="lastName"
+                    #lastName="ngModel">
+            <div [hidden]="lastName.valid || lastName.pristine"
+                class="alert alert-danger">
+                lastName is required
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label for="birthday">birthday</label>
+            <input type="text"  class="form-control" id="birthday"
+                    required
+                    [(ngModel)]="model.birthday" name="birthday"
+                    #birthday="ngModel">
+            <div [hidden]="birthday.valid || birthday.pristine"
+                class="alert alert-danger">
+                birthday is required
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label for="imageStr64">imageStr64</label>
+            <input type="text"  class="form-control" id="imageStr64"
+                    required
+                    [(ngModel)]="model.imageStr64" name="imageStr64"
+                    #imageStr64="ngModel">
+            <div [hidden]="imageStr64.valid || imageStr64.pristine"
+                class="alert alert-danger">
+                imageStr64 is required
+            </div>
+        </div>
+
+        <input type="file" accept="image/*" (change)="changeListener($event)">
         
        <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
         </form>
