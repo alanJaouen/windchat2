@@ -10,11 +10,11 @@ import { HeroService } from './hero.service';
   template: `
     <h1>{{title}}</h1>
     <nav>
-      <a *ngIf="false" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
       <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-      <a routerLink="/login" routerLinkActive="active">login</a>
+      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/login" routerLinkActive="active">login</a>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/detail" routerLinkActive="active">detail</a>
-      <a routerLink="/register" routerLinkActive="active">register</a>
+      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/register" routerLinkActive="active">register</a>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/friends" routerLinkActive="active">friends</a>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/winds" routerLinkActive="active">winds</a>
     </nav>
