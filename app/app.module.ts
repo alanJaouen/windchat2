@@ -11,7 +11,7 @@ import { HeroService }          from './hero.service';
 import { LoginFormComponent }    from './login-form.component';
 import { RegisterFormComponent }from './register-form.component';
 import { FriendComponent }     from './friend.component';
-import { SendWindComponent }     from './send-wind.component';
+import { SendWindComponent }     from './SendWindComponent';
 
 
 

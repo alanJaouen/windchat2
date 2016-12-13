@@ -15,9 +15,10 @@ import { HeroService }  from './hero.service';
   templateUrl: 'sendWind.component.html',
   styleUrls: [ 'hero-detail.component.css' ]
 })
-export class RegisterFormComponent implements OnInit {
+export class SendWindComponent implements OnInit {
   hero: Hero;
   model:Wind;
+  image:string;
   
 
   constructor(
@@ -28,13 +29,20 @@ export class RegisterFormComponent implements OnInit {
   ) {}
 
 
+setPosition(position){
+      this.model.latitude = position.coords.latitude;
+      this.model.longitude = position.coords.longitude;
+      }
+
 
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.heroService.getHero())
       .subscribe(hero => this.hero = hero);
-    this.model = new Hero();
-    this.model.birthday= "1912-06-23T00:00:00";
+    this.model = new Wind();
+       if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(this.setPosition);
+      };
   }
 
   goBack(): void {
@@ -51,7 +59,8 @@ readThis(inputValue: any): void {
   var myReader:FileReader = new FileReader();
 
   myReader.onloadend = (e) => {
-    this.model.imageStr64 = myReader.result.substring(22,myReader.result.len);
+    this.model.image = myReader.result.substring(22,myReader.result.len);
+    this.image = myReader.result;
   }
   myReader.readAsDataURL(file);
 }
@@ -72,11 +81,13 @@ readThis(inputValue: any): void {
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
+      headers.append('Authorization', 'Bearer ' + this.hero.token);
+
       console.log(body);
 
 
       this.http
-        .post('http://windchatapi.3ie.fr/api/user/register',
+        .post('http://windchatapi.3ie.fr/api/wind',
           body, {
             headers: headers
           })

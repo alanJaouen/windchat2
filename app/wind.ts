@@ -9,7 +9,7 @@ export class Wind {
   {
     this.longitude = 2.3624606;
     this.latitide = 48.8150901;
-    recipients = Array<number>;
+    recipients = Array<number>();
       
     //   this.recipients
   }

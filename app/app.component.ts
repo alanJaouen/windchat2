@@ -16,7 +16,7 @@ import { HeroService } from './hero.service';
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/detail" routerLinkActive="active">detail</a>
       <a routerLink="/register" routerLinkActive="active">register</a>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/friends" routerLinkActive="active">friends</a>
-      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/pendingFriends" routerLinkActive="active">pendingFriends</a>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/winds" routerLinkActive="active">winds</a>
     </nav>
     <router-outlet></router-outlet>
   `,
