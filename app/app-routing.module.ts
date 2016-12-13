@@ -7,6 +7,7 @@ import { HeroDetailComponent }  from './hero-detail.component';
 import { LoginFormComponent }   from './login-form.component';
 import { RegisterFormComponent }from './register-form.component';
 import { FriendComponent }     from './friend.component';
+import { SendWindComponent }     from './send-wind.component';
 //import { PendingFriendsComponent }from './pending-friend.component';
 
 
@@ -18,8 +19,8 @@ const routes: Routes = [
   //{ path: 'detail/:id', component: HeroDetailComponent },
   { path: 'detail', component: HeroDetailComponent },
   { path: 'heroes',     component: HeroesComponent },
-  { path: 'friends',     component: FriendComponent }
-//  { path: 'pendingFriends',     component: PendingFriendsComponent }
+  { path: 'friends',     component: FriendComponent },
+  { path: 'winds',     component: SendWindComponent }
 ];
 
 @NgModule({
