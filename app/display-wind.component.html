@@ -1,0 +1,29 @@
+<button (click)="reset()">refresh</button><br/>
+ <ul >
+     
+    <li *ngFor="let f of winds" >
+        <div class="contact">
+            <img src={{f.pictureUrlSmall}}>
+            <span>{{f.userName}}</span>
+            <ul>
+                <li *ngFor="let w of f.winds" >
+                    <div *ngIf="true">
+                        <img style="width:100px;heigth:100px;-webkit-filter: blur(8px);filter: blur(8px);" src={{w.imageUrlSmall}}><br/>
+                        {{w.latitude}}<br/>
+                        {{w.longitude}}<br/>
+                        {{w.duration}}<br/>
+                        {{w.sendDate}}<br/>
+                        {{w.isOpened}}<br/>
+                        <img src="https://maps.googleapis.com/maps/api/staticmap?center={{w.latitude}},{{w.longitude}}&zoom=10&size=300x150&&markers=color:blue%7Clabel:S%7C{{w.latitude}},{{w.longitude}}">
+                    </div>
+                </li>
+                    
+                
+            </ul>
+        </div>
+    </li>
+</ul>
+<!-- *ng-for="#el of list; #idx = index"
+<sebm-google-map style="width:200px;" [latitude]={{w.latitude}} [longitude]={{w.longitude}}>
+                            <sebm-google-map-marker [latitude]={{w.latitude}} [longitude]={{w.longitude}}></sebm-google-map-marker>
+                        </sebm-google-map> -->
