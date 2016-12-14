@@ -18,7 +18,7 @@
 
         <div *ngFor="let f of friends; let i = index">
             <label>{{f.userName}}</label>
-            
+            <img src={{f.pictureUrlSmall}}>
             <input type="checkbox" value={{f.id}} class="checkedStudent" (change)="checkedStudents(f.id)" id={{f.id}}>
         </div>
         
