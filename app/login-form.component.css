@@ -1,0 +1,27 @@
+input {
+    border-radius: 5px;
+    width: 65%;
+    text-align: center;
+}
+label {
+
+  display: inline-block;
+  width: 30%;
+  min-width: 5em;
+  margin: .5em 0;
+  color: #607D8B;
+}
+
+.form-group {
+    height: 75px;
+    width: 100%;
+    
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #EBCCD1;
+    background-color: #F2DEDE;
+    width: 83%;
+}
