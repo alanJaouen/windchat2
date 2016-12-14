@@ -1,0 +1,15 @@
+<div>
+    <div style="position:absolute;top:0;left:0;z-index:33;width:30px;heigth:30px;">
+        {{duration}}
+    </div>
+     <ul >
+     
+        <li *ngFor="let f of winds" >
+            <ul>
+                <li *ngFor="let w of f.winds" >
+                    <img *ngIf="w.id == this.id" id={{w.duration}} style="top:0;left:0;position:absolute;width:auto;heigth:50%;" src={{w.imageUrlSmall}} ><br/>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
