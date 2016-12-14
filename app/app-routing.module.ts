@@ -9,6 +9,8 @@ import { RegisterFormComponent }from './register-form.component';
 import { FriendComponent }      from './friend.component';
 import { SendWindComponent }    from './SendWindComponent';
 import { DisplayWindComponent } from './display-wind.component';
+import { ShowWindComponent } from './show-wind.component';
+
 
 
 const routes: Routes = [
@@ -20,7 +22,8 @@ const routes: Routes = [
     { path: 'heroes',     component: HeroesComponent },
     { path: 'friends',    component: FriendComponent },
     { path: 'winds',      component: SendWindComponent },
-    { path: 'display',    component: DisplayWindComponent }
+    { path: 'display',    component: DisplayWindComponent },
+    { path: 'show',   component: ShowWindComponent },
 ];
 
 @NgModule({

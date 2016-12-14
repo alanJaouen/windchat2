@@ -1,21 +1,22 @@
-<button (click)="reset()">display friends</button><br/>
-<input [(ngModel)]="name" placeholder="userName" />
-<button (click)="search()">search friends</button>
-<button (click)="showPendding()">show Pendding</button>
+<div class="container">
+    <button (click)="reset()">display friends</button><br/>
+    <input [(ngModel)]="name" placeholder="userName" />
+    <button (click)="search()">search friends</button>
+    <button (click)="showPendding()">show Pendding</button>
 
 
 
- <ul >
-     
-    <li *ngFor="let f of friends" >
-        <div class="contact">
-            <img src={{f.pictureUrlSmall}}>
-            <span>{{f.userName}}</span>
-            <button *ngIf="show" (click)="delete($event)" id="{{f.id}}">Delete him</button>
-            <button *ngIf="adding" (click)="becomeFriend($event)" id="{{f.userName}}">Become my friend</button>
-            <button *ngIf="pendding" (click)="this.acept='true';accept($event)" id="{{f.id}}">Accept as friend</button>
-            <button *ngIf="pendding" (click)="this.acept='false';accept($event)" id="{{f.id}}">Refuse as friend</button>
-        </div>
-    </li>
-</ul>
-<!-- *ng-for="#el of list; #idx = index" -->
+    <ul >
+        
+        <li *ngFor="let f of friends" >
+            <div class="contact">
+                <img src={{f.pictureUrlSmall}}>
+                <span>{{f.userName}}</span>
+                <button *ngIf="show" (click)="delete($event)" id="{{f.id}}">Delete him</button>
+                <button *ngIf="adding" (click)="becomeFriend($event)" id="{{f.userName}}">Become my friend</button>
+                <button *ngIf="pendding" (click)="this.acept='true';accept($event)" id="{{f.id}}">Accept as friend</button>
+                <button *ngIf="pendding" (click)="this.acept='false';accept($event)" id="{{f.id}}">Refuse as friend</button>
+            </div>
+        </li>
+    </ul>
+<div class="container">

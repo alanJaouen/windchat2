@@ -2,7 +2,6 @@
     <div class="container">
         <h1>Login Form</h1>
         <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-         {{diagnostic}}
         <div class="form-group">
         <label for="email">email</label>
         <input type="text" class="form-control" id="email"
@@ -10,7 +9,7 @@
                [(ngModel)]="model.email" name="email"
                #email="ngModel" >
         <div [hidden]="email.valid || email.pristine"
-             class="alert alert-danger">
+             class="alert">
           email is required
         </div>
         </div>
@@ -21,7 +20,7 @@
                 [(ngModel)]="model.password" name="password"
                 #password="ngModel">
         <div [hidden]="password.valid || password.pristine"
-            class="alert alert-danger">
+            class="alert">
             password is required
         </div>
         </div>

@@ -1,15 +1,7 @@
 <div style="background-color:red" *ngIf="hero">
-  <img src={{hero.pictureUrlSmall}}>
+  <img *ngIf="!this.model.imageStr64" src={{hero.pictureUrlSmall}}>
+  <img *ngIf="this.model.imageStr64" src={{image}}>
   <h2>{{hero.userName}} details!</h2>
-  <div>
-    <label>id: </label>{{hero.id}}
-  </div>
-  <div>
-    <label>userName: </label>{{hero.userName}}
-  </div>
-  <div>
-    <label>token: </label>{{hero.token}}
-  </div>
   <div>
     <label>firstName: </label>
     <input [(ngModel)]="hero.firstName" placeholder="firstName" />
@@ -29,6 +21,10 @@
   <div>
     <label>subscribeDay: </label>{{hero.subscribeDay}}
   </div>
+  <div>
+    <input type="file" accept="image/*" (change)="changeListener($event)">
+  </div>
+
   <button (click)="goBack()">Back and save</button>
   <button (click)="reset()">Reset</button>
   <button (click)="delete()">Delete my account</button>

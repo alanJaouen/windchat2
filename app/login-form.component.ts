@@ -12,18 +12,20 @@ import { HeroService }  from './hero.service';
   moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: 'login-form.component.html',
-  styleUrls: [ 'hero-detail.component.css' ]
+  styleUrls: [ 'login-form.component.css' ]
 })
 export class LoginFormComponent implements OnInit {
   hero: Hero;
-  friends: Hero[];
+  model = new Hero();
 
   constructor(
     private heroService: HeroService,
     private route: ActivatedRoute,
     private location: Location,
     private http:Http
-  ) {}
+  ) {
+
+  }
 
 
 
@@ -32,24 +34,18 @@ export class LoginFormComponent implements OnInit {
       .switchMap((params: Params) => this.heroService.getHero())
       .subscribe(hero => this.hero = hero);
           this.route.params
-      .switchMap((params: Params) => this.heroService.getHeroes())
-      .subscribe(friends => this.friends = friends);
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  model = new Hero();
-
-  submitted = false;
 
 
   onSubmit() {
       var obj =  JSON.stringify(this.model);
       console.log(obj);
       this.testRequest();
-      this.submitted = true;
      }
   // TODO: Remove this when we're done
   get diagnostic() { return JSON.stringify(this.model); }
@@ -86,11 +82,9 @@ export class LoginFormComponent implements OnInit {
               this.hero.subscribeDay=data.json().subscribeDay;
 
               this.hero.isLog=true;
-              console.log( this.hero.email);
-
               
           }, error => {
-              console.log(JSON.stringify(error.json()));
+              alert("Erreur lors de la connection. Si le probleme perciste veuillez contacter un administrateur.")
           });
 
 

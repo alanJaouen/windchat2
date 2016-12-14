@@ -14,6 +14,7 @@ import { RegisterFormComponent }from './register-form.component';
 import { FriendComponent }      from './friend.component';
 import { SendWindComponent }    from './SendWindComponent';
 import { DisplayWindComponent } from './display-wind.component';
+import { ShowWindComponent } from './show-wind.component';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -38,7 +39,8 @@ import { CommonModule } from '@angular/common';
     HeroesComponent,
     FriendComponent,
     SendWindComponent,
-    DisplayWindComponent
+    DisplayWindComponent,
+    ShowWindComponent
   ],
   providers: [ HeroService ],
   bootstrap: [ AppComponent ]

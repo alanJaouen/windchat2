@@ -8,15 +8,18 @@ import { HeroService } from './hero.service';
   moduleId: module.id,
   selector: 'my-app',
   template: `
-    <h1>{{title}}</h1>
-    <nav>
-      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/login" routerLinkActive="active">login</a>
-      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/detail" routerLinkActive="active">detail</a>
-      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/register" routerLinkActive="active">register</a>
-      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/friends" routerLinkActive="active">friends</a>
-      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/winds" routerLinkActive="active">Send winds</a>
+  <header>
+    <img id="menu" (click)="menu = !menu;" src="../res/menu.png">
+  
+    <img id="topLogo" src="../res/windchat-logo-white-banner.png">
+  </header>
+    <nav *ngIf="menu">
+      <a routerLink="/dashboard" routerLinkActive="active">Home</a><br/>
+      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/login" routerLinkActive="active">Login</a><br/>
+      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/register" routerLinkActive="active">Register</a><br/>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/detail" routerLinkActive="active">Account</a><br/>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/friends" routerLinkActive="active">Friends</a><br/>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/winds" routerLinkActive="active">Send winds</a><br/>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/display" routerLinkActive="active">Display winds</a>
     </nav>
     <router-outlet></router-outlet>
@@ -25,8 +28,8 @@ import { HeroService } from './hero.service';
 })
 
 export class AppComponent {
-  title = 'windshot';
   hero:Hero;
+  menu:boolean = false;
 
 
   constructor(private heroService: HeroService)
