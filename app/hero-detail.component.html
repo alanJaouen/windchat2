@@ -1,32 +1,36 @@
-<div style="background-color:red" *ngIf="hero">
-  <img *ngIf="!this.model.imageStr64" src={{hero.pictureUrlSmall}}>
-  <img *ngIf="this.model.imageStr64" src={{image}}>
-  <h2>{{hero.userName}} details!</h2>
-  <div>
-    <label>firstName: </label>
-    <input [(ngModel)]="hero.firstName" placeholder="firstName" />
+<div class="container">
+  <div style="background-color:red" *ngIf="hero">
+    <div class="pics">
+      <img src={{hero.pictureUrlSmall}}>
+    </div>
+    <div class="pics">
+      <img src={{image}}>
+    </div>
+    <h2>{{hero.userName}} details!</h2>
+    <div>
+      <label>firstName: </label>
+      <input [(ngModel)]="hero.firstName" placeholder="firstName" />
+    </div>
+    <div>
+      <label>lastName: </label>
+      <input [(ngModel)]="hero.lastName" placeholder="lastName" />
+    </div>
+    <div>
+      <label>birthday: </label>
+      <input [(ngModel)]="hero.birthday" placeholder="birthday" />
+    </div>
+    <div>
+    <label>email: </label>
+      <input [(ngModel)]="hero.email" placeholder="email" />
+    </div>
+    <div>
+      <label>subscribeDay: </label>{{hero.subscribeDay}}
+    </div>
+    <div>
+              <input type="file" accept="image/*" (change)="changeListener($event)">
+    </div>
+    <button (click)="goBack()">Back and save</button>
+    <button (click)="reset()">Reset</button>
+    <button (click)="delete()">Delete my account</button>
   </div>
-  <div>
-    <label>lastName: </label>
-    <input [(ngModel)]="hero.lastName" placeholder="lastName" />
-  </div>
-  <div>
-    <label>birthday: </label>
-    <input [(ngModel)]="hero.birthday" placeholder="birthday" />
-  </div>
-  <div>
-  <label>email: </label>
-    <input [(ngModel)]="hero.email" placeholder="email" />
-  </div>
-  <div>
-    <label>subscribeDay: </label>{{hero.subscribeDay}}
-  </div>
-  <div>
-    <input type="file" accept="image/*" (change)="changeListener($event)">
-  </div>
-
-  <button (click)="goBack()">Back and save</button>
-  <button (click)="reset()">Reset</button>
-  <button (click)="delete()">Delete my account</button>
 </div>
-

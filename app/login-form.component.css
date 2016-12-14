@@ -18,10 +18,7 @@ label {
     
 }
 
-.alert {
+button {
+    width: 100%;
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #EBCCD1;
-    background-color: #F2DEDE;
-    width: 83%;
 }

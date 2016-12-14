@@ -84,7 +84,7 @@ export class LoginFormComponent implements OnInit {
               this.hero.isLog=true;
               
           }, error => {
-              alert("Erreur lors de la connection. Si le probleme perciste veuillez contacter un administrateur.")
+              alert("Error while check credentials.")
           });
 
 
