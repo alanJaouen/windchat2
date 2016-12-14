@@ -12,7 +12,7 @@ import { HeroService }  from './hero.service';
   moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: 'login-form.component.html',
-  styleUrls: [ 'login-form.component.css' ]
+  styleUrls: [ 'hero-detail.component.css', 'login-form.component.css' ]
 })
 export class LoginFormComponent implements OnInit {
   hero: Hero;

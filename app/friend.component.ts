@@ -10,7 +10,10 @@ import { HeroService }  from './hero.service';
   moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: 'friend.component.html',
-  styleUrls: [ 'hero-detail.component.css' ]
+  styleUrls: [
+     'hero-detail.component.css',
+     'friend.component.css' 
+     ]
 })
 export class FriendComponent implements OnInit {
   hero: Hero;

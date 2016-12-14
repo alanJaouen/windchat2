@@ -1,37 +1,55 @@
-<div *ng-for="#el of list; #idx = index">
-<div style="background-color:red" *ngIf="hero">
-  <img src={{hero.pictureUrlSmall}}>
-  <h2>{{hero.userName}} details!</h2>
-  <div>
-    <label>id: </label>{{hero.id}}
-  </div>
-  <div>
-    <label>userName: </label>{{hero.userName}}
-  </div>
-  <div>
-    <label>token: </label>{{hero.token}}
-  </div>
-  <div>
-    <label>firstName: </label>
-    <input [(ngModel)]="hero.firstName" placeholder="firstName" />
-  </div>
-  <div>
-    <label>lastName: </label>
-    <input [(ngModel)]="hero.lastName" placeholder="lastName" />
-  </div>
-  <div>
-    <label>birthday: </label>
-    <input [(ngModel)]="hero.birthday" placeholder="birthday" />
-  </div>
-  <div>
-  <label>email: </label>
-    <input [(ngModel)]="hero.email" placeholder="email" />
-  </div>
-  <div>
-    <label>subscribeDay: </label>{{hero.subscribeDay}}
-  </div>
-  <button (click)="goBack()">Back and save</button>
-  <button (click)="reset()">Reset</button>
-  <button (click)="delete()">Delete my account</button>
-</div>
+.contact div {
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  vertical-align: middle;
+  text-align: center;
+}
 
+.contact div span {
+  color: snow;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.contact {
+  vertical-align: middle;
+  margin-top: 20px;
+  max-width: 450px;
+}
+
+li{
+  display: inline-block;  
+}
+
+.contact .pics {
+  width: 100px;
+  height: 100px;
+  border-radius: 200px;
+  border: 3px solid snow;
+  overflow: hidden;
+}
+
+.contact .pics img {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+.container>button, .container>input {
+  width: 40%;
+  margin-left: 4%;
+  margin-right: 4%;
+  font-size: 1em;
+}
+
+.container>input {
+  width: calc(40% - 0.4em);
+}
+
+.container {
+  max-width: 1000px;
+}

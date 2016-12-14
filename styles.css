@@ -77,6 +77,11 @@ nav {
   left: 0;
   top: 50px;
   text-align: center;
+  -moz-box-shadow: 5px 0px 2px 0px #656565;
+  -webkit-box-shadow: 5px 0px 2px 0px #656565;
+  -o-box-shadow: 5px 0px 2px 0px #656565;
+  box-shadow: 5px 0px 2px 0px #656565;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=90, Strength=2);
 }
 nav a {
   padding: 5px 10px;
