@@ -15,11 +15,15 @@
         </div>
 
         <input type="file" accept="image/*" (change)="changeListener($event)" required><br>
+
+        <div *ngFor="let f of friends; let i = index">
+            <label>{{f.userName}}</label>
+            
+            <input type="checkbox" value={{f.id}} class="checkedStudent" (change)="checkedStudents(f.id)" id={{f.id}}>
+        </div>
         
        <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
         </form>
 
-        <div style="width:100px">
-            <img src="{{image}}">
-        </div>
+        <img src="{{image}}">
     </div>

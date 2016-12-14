@@ -8,8 +8,8 @@ export class Wind {
   constructor()
   {
     this.longitude = 2.3624606;
-    this.latitide = 48.8150901;
-    recipients = Array<number>();
+    this.latitude = 48.8150901;
+    this.recipients = Array<number>();
       
     //   this.recipients
   }

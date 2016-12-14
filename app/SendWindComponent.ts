@@ -18,6 +18,7 @@ import { HeroService }  from './hero.service';
 export class SendWindComponent implements OnInit {
   hero: Hero;
   model:Wind;
+  friends:Hero[];
   image:string;
   
 
@@ -39,9 +40,12 @@ setPosition(position){
     this.route.params
       .switchMap((params: Params) => this.heroService.getHero())
       .subscribe(hero => this.hero = hero);
+    this.route.params
+      .switchMap((params: Params) => this.heroService.getHeroes())
+      .subscribe(friends => this.friends = friends);
     this.model = new Wind();
        if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(this.setPosition);
+        navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
       };
   }
 
@@ -49,9 +53,27 @@ setPosition(position){
     this.location.back();
   }
 
+ getfriends() {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
+    headers.append('Authorization', 'Bearer ' + this.hero.token);
+    this.http
+      .get('http://windchatapi.3ie.fr/api/friend/list', {
+        headers: headers
+      })
+      .subscribe(data => {
+        this.friends =<Hero[]>data.json();
+        console.log(JSON.stringify(data.json()));
+
+      }, error => {
+        console.log(JSON.stringify(error.json()));
+      });
+    }
 
 changeListener($event) : void {
-  this.readThis($event.target);
+    this.getfriends();
+    this.readThis($event.target);
 }
 
 readThis(inputValue: any): void {
@@ -70,7 +92,6 @@ readThis(inputValue: any): void {
       var obj =  JSON.stringify(this.model);
       console.log(obj);
       this.testRequest();
-      this.submitted = true;
      }
   // TODO: Remove this when we're done
   get diagnostic() { return JSON.stringify(this.model); }
@@ -93,9 +114,20 @@ readThis(inputValue: any): void {
           })
           .subscribe(data => {
               alert(JSON.stringify(data.json()));
-              this.hero.isLog=false;
           }, error => {
               alert(error.json().message);
           });
+    }
+
+    checkedStudents(value) {
+        console.log(value);
+        if ((<HTMLInputElement>document.getElementById(value)).checked === true) {
+            this.model.recipients.push(value);
+        }
+        else if ((<HTMLInputElement>document.getElementById(value)).checked === false) {
+            let indexx = this.model.recipients.indexOf(value);
+            this.model.recipients.splice(indexx,1)
+        }
+        console.log(this.model.recipients)
     }
 }
