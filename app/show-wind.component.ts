@@ -15,7 +15,7 @@ import { HeroService }  from './hero.service';
   moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: 'show-wind.component.html',
-  styleUrls: [ 'hero-detail.component.css' ]
+  styleUrls: [ 'hero-detail.component.css', 'show-wind.component.css' ]
 })
 export class ShowWindComponent implements OnInit {
   hero: Hero;
@@ -48,10 +48,6 @@ export class ShowWindComponent implements OnInit {
 
   }
 
-  ngAfterContentInit():void
-  {
-    alert("cool");
-  }
   wait(event):void
   {
       var target = event.target || event.srcElement || event.currentTarget;
@@ -68,7 +64,6 @@ export class ShowWindComponent implements OnInit {
   }
 
   reset() {
-    alert(this.id);
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
@@ -82,7 +77,7 @@ export class ShowWindComponent implements OnInit {
         console.log(JSON.stringify(data.json()));
 
         
-        setTimeout(()=>{ this.goBack()}, 10000);
+        setTimeout(()=>{ this.goBack()}, 11000);
         setInterval(()=>{ this.duration = this.duration - 1 ; }, 1000);
         
 
@@ -103,7 +98,6 @@ export class ShowWindComponent implements OnInit {
         var target = event.target || event.srcElement || event.currentTarget;
         var idAttr = target.attributes.id;
         var value = idAttr.nodeValue;
-        alert("seen: "+value);
 
        /* this.http
         .delete('http://windchatapi.3ie.fr/api/friend/' + value , {

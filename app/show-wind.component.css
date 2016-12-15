@@ -1,0 +1,27 @@
+img {
+    z-index: 5;
+    width: 100%;
+}
+
+#dura{
+    position: absolute;
+    top:10;
+    left: 10;
+    font-size: larger;
+    border-radius: 300px;
+    border: black solid 3px;
+    background-color: gray;
+    color: black;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
