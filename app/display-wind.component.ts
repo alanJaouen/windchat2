@@ -8,14 +8,13 @@ import { Http, Headers } from '@angular/http';
 
 import { Hero }         from './hero';
 import { HeroService }  from './hero.service';
-//import { Test }  from './map.component';
 
 
 @Component({
   moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: 'display-wind.component.html',
-  styleUrls: [ 'hero-detail.component.css' ]
+  styleUrls: [ 'hero-detail.component.css', 'display-wind.component.css' ]
 })
 export class DisplayWindComponent implements OnInit {
   hero: Hero;

@@ -1,0 +1,67 @@
+.contact .pics {
+  width: 75px;
+  height: 75px;
+  border-radius: 200px;
+  border: 3px solid snow;
+  overflow: hidden;
+}
+
+.contact .pics img {
+  width: 100%;
+}
+
+.contact div {
+  display: inline-block;
+  width: 200px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.contact div span {
+  color: snow;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.contact {
+  vertical-align: middle;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+.container{
+    width: 100%;
+    max-width: 750px;
+}
+
+.container>ul>li {
+    margin-top: 20px; 
+}
+
+.snap div
+{
+    width: 30%;
+    display: inline-block;
+}
+
+.snap div img{
+    width: auto;
+    max-height: 150px;
+}
+
+@media (max-width: 500px) {
+    .snap div
+    {
+        display: block;
+    }
+}
+
+li {
+    border: 1px solid black;
+}
