@@ -3,7 +3,7 @@ import { Http, Headers } from '@angular/http';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { Component, OnInit }      from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 
 import { Hero }         from './hero';
@@ -22,7 +22,8 @@ export class LoginFormComponent implements OnInit {
     private heroService: HeroService,
     private route: ActivatedRoute,
     private location: Location,
-    private http:Http
+    private http:Http,
+    private router:Router
   ) {
 
   }
@@ -40,17 +41,10 @@ export class LoginFormComponent implements OnInit {
     this.location.back();
   }
 
-
-
   onSubmit() {
       var obj =  JSON.stringify(this.model);
-      console.log(obj);
       this.testRequest();
      }
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
-
-
     newHero() {
         this.model = new Hero();
     }
@@ -69,7 +63,6 @@ export class LoginFormComponent implements OnInit {
             headers: headers
           })
           .subscribe(data => {
-                alert('ok');
               console.log(JSON.stringify(data.json()));
               this.hero.email=data.json().email;
               this.hero.id=data.json().id;
@@ -80,14 +73,10 @@ export class LoginFormComponent implements OnInit {
               this.hero.token=data.json().token;
               this.hero.pictureUrlSmall=data.json().pictureUrlSmall;
               this.hero.subscribeDay=data.json().subscribeDay;
-
               this.hero.isLog=true;
-              
+              this.router.navigateByUrl("/"); 
           }, error => {
               alert("Error while check credentials.")
           });
-
-
-     
     }
 }

@@ -14,13 +14,13 @@ import { HeroService } from './hero.service';
     <img id="topLogo" src="../res/windchat-logo-white-banner.png">
   </header>
     <nav *ngIf="menu">
-      <a routerLink="/dashboard" routerLinkActive="active">Home</a><br/>
-      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/login" routerLinkActive="active">Login</a><br/>
-      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/register" routerLinkActive="active">Register</a><br/>
-      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/detail" routerLinkActive="active">Account</a><br/>
-      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/friends" routerLinkActive="active">Friends</a><br/>
-      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/winds" routerLinkActive="active">Send winds</a><br/>
-      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/display" routerLinkActive="active">Display winds</a>
+      <a routerLink="/dashboard" (click)="menu = !menu;" routerLinkActive="active">Home</a><br/>
+      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/login" (click)="menu = !menu;" routerLinkActive="active">Login</a><br/>
+      <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/register" (click)="menu = !menu;" routerLinkActive="active">Register</a><br/>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/detail" (click)="menu = !menu;" routerLinkActive="active">Account</a><br/>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/friends" (click)="menu = !menu;" routerLinkActive="active">Friends</a><br/>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/winds" (click)="menu = !menu;" routerLinkActive="active">Send winds</a><br/>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/display" (click)="menu = !menu;" routerLinkActive="active">Display winds</a>
     </nav>
     <router-outlet></router-outlet>
   `,
