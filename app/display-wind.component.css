@@ -19,7 +19,7 @@
 
 .contact div span {
   color: snow;
-  font-size: medium;
+  font-size: large;
   font-weight: bold;
 }
 
@@ -27,6 +27,7 @@
   vertical-align: middle;
   margin-top: 5px;
   margin-bottom: 5px;
+  border-bottom: solid 1px snow;
 }
 
 ul {
@@ -53,6 +54,7 @@ ul {
 .snap div img{
     width: auto;
     max-height: 150px;
+    padding-top: 10px;
 }
 
 @media (max-width: 500px) {
@@ -64,4 +66,10 @@ ul {
 
 li {
     border: 1px solid black;
+}
+
+.mid{
+    position: relative;
+    top:0;
+    left: 0;
 }

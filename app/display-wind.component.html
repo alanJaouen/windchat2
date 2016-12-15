@@ -17,9 +17,11 @@
                         <div>
                             <img id="w{{w.id}}" style="-webkit-filter: blur(8px);filter: blur(8px);" src={{w.imageUrlSmall}} >
                         </div>
-                        <div>
-                            {{w.sendDate}}<br/>
-                            <button *ngIf="!w.isOpened" (click)="open($event)" id="{{w.id}}">open this wind</button>
+                        <div class="mid">
+                            <p>
+                                {{w.sendDate}}<br/>
+                                <button *ngIf="!w.isOpened" (click)="open($event)" id="{{w.id}}">open this wind</button>
+                            </p>
                         </div>
                         <div>
                             <img src="https://maps.googleapis.com/maps/api/staticmap?center={{w.latitude}},{{w.longitude}}&zoom=10&size=200x200&&markers=color:blue%7Clabel:S%7C{{w.latitude}},{{w.longitude}}&key=AIzaSyAeEd_VfhEy_aHzra-dT6EO6b4VrLXa_6s">
