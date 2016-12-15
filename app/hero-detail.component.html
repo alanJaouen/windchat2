@@ -1,9 +1,9 @@
 <div class="container">
-  <div style="background-color:red" *ngIf="hero">
-    <div class="pics">
+  <div style="margin-top:20px" *ngIf="hero">
+    <div *ngIf="!imageb" class="pics">
       <img src={{hero.pictureUrlSmall}}>
     </div>
-    <div class="pics">
+    <div *ngIf="imageb" class="pics">
       <img src={{image}}>
     </div>
     <h2>{{hero.userName}} details!</h2>
@@ -27,10 +27,15 @@
       <label>subscribe day: </label>{{hero.subscribeDay}}
     </div>
     <div>
-    <label>photo: </label><input type="file" accept="image/*" (change)="changeListener($event)">
+    <label>photo: </label><input name="file" id="file" type="file" accept="image/*" (change)="changeListener($event)">
+    <label class="file" for="file">Choose a file</label>
     </div>
-    <button (click)="goBack()">Back and save</button>
-    <button (click)="reset()">Reset</button>
-    <button (click)="delete()">Delete my account</button>
+    <br/>
+    <br/>
+    <div class="center">
+      <button (click)="goBack()">Save</button>
+      <button (click)="reset()">Reset</button>
+      <button (click)="delete()">Delete my account</button>
+    </div>
   </div>
 </div>

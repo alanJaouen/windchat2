@@ -13,5 +13,22 @@
 
 
 button {
-  width: 30%;
+  margin: auto;
+}
+
+#file{
+  display: none;
+}
+
+.file {
+  background-color: #F0F0F0;
+  font-family: Arial;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer; cursor: hand;
+}
+
+.file:hover {
+  background-color: #cfd8dc;
 }

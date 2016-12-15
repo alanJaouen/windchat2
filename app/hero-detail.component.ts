@@ -15,6 +15,8 @@ import { HeroService }  from './hero.service';
 export class HeroDetailComponent implements OnInit {
   hero: Hero;
   image:string;
+  image2:string;
+  imageb:boolean = false;
 
 
 
@@ -40,15 +42,15 @@ readThis(inputValue: any): void {
   var myReader:FileReader = new FileReader();
 
   myReader.onloadend = (e) => {
-    this.hero.imageStr64 = myReader.result.substring(22,myReader.result.len);
+    this.image2 = myReader.result.substring(22,myReader.result.len);
     this.image = myReader.result;
+    this.imageb = true;
   }
   myReader.readAsDataURL(file);
 }
 
   goBack(): void {
     this.change();
-    
   }
 
   reset() {
@@ -61,7 +63,6 @@ readThis(inputValue: any): void {
         headers: headers
       })
       .subscribe(data => {
-        alert('ok');
         console.log(JSON.stringify(data.json()));
         this.hero.email=data.json().email;
         this.hero.id=data.json().id;
@@ -71,7 +72,7 @@ readThis(inputValue: any): void {
         this.hero.birthday=data.json().birthday;
         this.hero.pictureUrlSmall=data.json().pictureUrlSmall;
         this.hero.subscribeDay=data.json().subscribeDay;
-        console.log( this.hero.email);
+        this.imageb = false;
       }, error => {
         console.log(JSON.stringify(error.json()));
       });
@@ -96,13 +97,24 @@ readThis(inputValue: any): void {
     }
 
      change() {
-        var body = {
-          "email": this.hero.email,
-          "firstName": this.hero.firstName,
-          "lastName": this.hero.lastName,
-          "birthday": this.hero.birthday,
-          "imageStr64": this.hero.imageStr64
-        };
+
+        var body;
+        if (!this.imageb) 
+          body ={
+            "email": this.hero.email,
+            "firstName": this.hero.firstName,
+            "lastName": this.hero.lastName,
+            "birthday": this.hero.birthday,
+            "imageStr64": this.hero.imageStr64
+          };
+        else        
+          body ={
+            "email": this.hero.email,
+            "firstName": this.hero.firstName,
+            "lastName": this.hero.lastName,
+            "birthday": this.hero.birthday,
+            "imageStr64": this.image2
+          };
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
