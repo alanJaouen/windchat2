@@ -8,11 +8,11 @@
     </div>
     <h2>{{hero.userName}} details!</h2>
     <div>
-      <label>firstName: </label>
+      <label>first name: </label>
       <input [(ngModel)]="hero.firstName" placeholder="firstName" />
     </div>
     <div>
-      <label>lastName: </label>
+      <label>last name: </label>
       <input [(ngModel)]="hero.lastName" placeholder="lastName" />
     </div>
     <div>
@@ -24,10 +24,10 @@
       <input [(ngModel)]="hero.email" placeholder="email" />
     </div>
     <div>
-      <label>subscribeDay: </label>{{hero.subscribeDay}}
+      <label>subscribe day: </label>{{hero.subscribeDay}}
     </div>
     <div>
-              <input type="file" accept="image/*" (change)="changeListener($event)">
+    <label>photo: </label><input type="file" accept="image/*" (change)="changeListener($event)">
     </div>
     <button (click)="goBack()">Back and save</button>
     <button (click)="reset()">Reset</button>

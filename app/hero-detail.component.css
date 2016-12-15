@@ -13,7 +13,6 @@ input {
 button {
   margin-top: 20px;
   font-family: Arial;
-  background-color: #eee;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
@@ -30,4 +29,13 @@ button:disabled {
 
 body {
   margin: 0;
+}
+
+label {
+  width: 40%;
+  padding-left: 10%;
+}
+
+input {
+  width: 45%;
 }

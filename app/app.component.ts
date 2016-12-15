@@ -20,7 +20,8 @@ import { HeroService } from './hero.service';
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/detail" (click)="menu = !menu;" routerLinkActive="active">Account</a><br/>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/friends" (click)="menu = !menu;" routerLinkActive="active">Friends</a><br/>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/winds" (click)="menu = !menu;" routerLinkActive="active">Send winds</a><br/>
-      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/display" (click)="menu = !menu;" routerLinkActive="active">Display winds</a>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/display" (click)="menu = !menu;" routerLinkActive="active">Display winds</a><br/><br/>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/dashboard" (click)="this.load(); this.hero.isLog=false" routerLinkActive="active">Disconnect</a>
     </nav>
     <router-outlet></router-outlet>
   `,
@@ -32,7 +33,15 @@ export class AppComponent {
   menu:boolean = false;
 
 
-  constructor(private heroService: HeroService)
+  constructor(private heroService: HeroService,
+   private route: ActivatedRoute,
+)
   {}
+
+  load(): void {
+    this.route.params
+      .switchMap((params: Params) => this.heroService.getHero())
+      .subscribe(hero => this.hero = hero);
+  }
   
 }

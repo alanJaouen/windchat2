@@ -2,9 +2,8 @@
     <div class="container">
         <h1>Register Form</h1>
         <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-         {{diagnostic}}
         <div class="form-group">
-            <label for="email">email</label>
+            <label for="email">email: </label>
             <input type="text" class="form-control" id="email"
                 required
                 [(ngModel)]="model.email" name="email"
@@ -16,19 +15,19 @@
         </div>
 
         <div class="form-group">
-            <label for="userName">userName</label>
+            <label for="userName">username: </label>
             <input type="text" class="form-control" id="userName"
                 required
                 [(ngModel)]="model.userName" name="userName"
                 #userName="ngModel" >
             <div [hidden]="userName.valid || userName.pristine"
                 class="alert alert-danger">
-            userName is required
+            username is required
             </div>
         </div>
 
         <div class="form-group">
-            <label for="password">password</label>
+            <label for="password">password: </label>
             <input type="text"  class="form-control" id="password"
                     required
                     [(ngModel)]="model.password" name="password"
@@ -40,31 +39,31 @@
         </div>
 
          <div class="form-group">
-            <label for="firstName">firstName</label>
+            <label for="firstName">first name: </label>
             <input type="text"  class="form-control" id="firstName"
                     required
                     [(ngModel)]="model.firstName" name="firstName"
                     #firstName="ngModel">
             <div [hidden]="firstName.valid || firstName.pristine"
                 class="alert alert-danger">
-                firstName is required
+                first name is required
             </div>
         </div>
 
          <div class="form-group">
-            <label for="lastName">lastName</label>
+            <label for="lastName">last name: </label>
             <input type="text"  class="form-control" id="lastName"
                     required
                     [(ngModel)]="model.lastName" name="lastName"
                     #lastName="ngModel">
             <div [hidden]="lastName.valid || lastName.pristine"
                 class="alert alert-danger">
-                lastName is required
+                last name is required
             </div>
         </div>
 
          <div class="form-group">
-            <label for="birthday">birthday</label>
+            <label for="birthday">birthday: </label>
             <input type="text"  class="form-control" id="birthday"
                     required
                     [(ngModel)]="model.birthday" name="birthday"
@@ -74,21 +73,9 @@
                 birthday is required
             </div>
         </div>
-
-         <div class="form-group">
-            <label for="imageStr64">imageStr64</label>
-            <input type="text"  class="form-control" id="imageStr64"
-                    required
-                    [(ngModel)]="model.imageStr64" name="imageStr64"
-                    #imageStr64="ngModel">
-            <div [hidden]="imageStr64.valid || imageStr64.pristine"
-                class="alert alert-danger">
-                imageStr64 is required
-            </div>
+        <div>
+            <label>photo: </label><input type="file" accept="image/*" (change)="changeListener($event)">
         </div>
-
-        <input type="file" accept="image/*" (change)="changeListener($event)">
-        
-       <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
+            <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
         </form>
     </div>

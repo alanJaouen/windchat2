@@ -12,7 +12,7 @@ import { HeroService }  from './hero.service';
   moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: 'register-form.component.html',
-  styleUrls: [ 'hero-detail.component.css' ]
+  styleUrls: [ 'hero-detail.component.css', 'login-form.component.css' ]
 })
 export class RegisterFormComponent implements OnInit {
   hero: Hero;

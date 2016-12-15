@@ -5,7 +5,7 @@ h1 {
   font-size: 250%;
 }
 h2, h3 {
-  color: #444;
+  color: snow;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
@@ -19,7 +19,9 @@ a {
 }
 button {
   font-family: Arial;
-  background-color: #eee;
+  color: #607d8b;
+  font-weight: bold;
+  font-size: medium;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
@@ -79,6 +81,7 @@ header img {
 
 /* Navigation link styles */
 nav {
+  z-index: 300;
   background-color: green;
   width: 200px;
   height: calc(100% - 50px);

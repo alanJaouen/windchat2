@@ -60,6 +60,7 @@ export class ShowWindComponent implements OnInit {
 
 
   goBack(): void {
+    this.opened();    
     this.location.back();
   }
 
@@ -78,37 +79,33 @@ export class ShowWindComponent implements OnInit {
 
         
         setTimeout(()=>{ this.goBack()}, 11000);
-        setInterval(()=>{ this.duration = this.duration - 1 ; }, 1000);
+        setInterval(()=>{ 
+          if (this.duration > 0)
+            this.duration = this.duration - 1 ; 
+        }, 1000);
         
 
       }, error => {
         console.log(JSON.stringify(error.json()));
       });
+  }
 
-      
-     
-    }
-
-    open(event) 
+    opened() 
     {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
         headers.append('Authorization', 'Bearer ' + this.hero.token);
-        var target = event.target || event.srcElement || event.currentTarget;
-        var idAttr = target.attributes.id;
-        var value = idAttr.nodeValue;
 
-       /* this.http
-        .delete('http://windchatapi.3ie.fr/api/friend/' + value , {
+
+        this.http
+        .put('http://windchatapi.3ie.fr/api/wind/' + this.id + '/open' , "", {
             headers: headers
         })
         .subscribe(data => {
-            alert('contact deleted');
-            console.log(JSON.stringify(data.json()));
         }, error => {
-            alert('ERROR: contact not deleted');        
+          alert(JSON.stringify(error.json()));
             console.log(JSON.stringify(error.json()));
-        });*/
+        });
     }
 }
