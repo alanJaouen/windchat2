@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Component, OnInit }      from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
+import { Cam }                  from './cam.component';
+
 
 import { Hero }         from './hero';
 import { Wind }         from './wind';
