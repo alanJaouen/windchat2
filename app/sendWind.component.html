@@ -1,6 +1,6 @@
 
     <div class="container">
-        <h1>Register Form</h1>
+        <h1>Send a wind</h1>
         <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
         <div class="form-group">
             <label for="duration">duration</label>
@@ -14,16 +14,25 @@
             </div>
         </div>
 
-        <input type="file" accept="image/*" (change)="changeListener($event)" required><br>
+        <label>photo: </label><input name="file" id="file" type="file" accept="image/*" (change)="changeListener($event)">
+        <label class="file" for="file">Choose a file</label>
 
-        <div *ngFor="let f of friends; let i = index">
-            <label>{{f.userName}}</label>
-            <img src={{f.pictureUrlSmall}}>
-            <input type="checkbox" value={{f.id}} class="checkedStudent" (change)="checkedStudents(f.id)" id={{f.id}}>
+        <label *ngIf="friends"> send to: </label>
+        <div style="margin:auto; text-align: center"  *ngFor="let f of friends; let i = index">
+            <div class="contact">
+                <div class="pics">
+                    <img src={{f.pictureUrlSmall}}>
+                </div>
+                <div>
+                    <span>{{f.userName}}</span><br/>
+                    <input type="checkbox" value={{f.id}} class="checkedStudent" (change)="checked(f.id)" id={{f.id}}>                   
+                </div>
+            </div>
         </div>
         
        <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Submit</button>
         </form>
-
-        <img src="{{image}}">
+        <div *ngIf="image" id="image">
+            <img src="{{image}}">
+        </div>
     </div>

@@ -13,7 +13,7 @@ import { HeroService }  from './hero.service';
   moduleId: module.id,
   selector: 'my-hero-detail',
   templateUrl: 'sendWind.component.html',
-  styleUrls: [ 'hero-detail.component.css' ]
+  styleUrls: [ 'hero-detail.component.css', 'sendWind.component.css' ]
 })
 export class SendWindComponent implements OnInit {
   hero: Hero;
@@ -89,13 +89,10 @@ readThis(inputValue: any): void {
 
 
   onSubmit() {
-      var obj =  JSON.stringify(this.model);
-      console.log(obj);
       this.testRequest();
-     }
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
-
+      this.model = new Wind();
+      this.image = null;
+  }
 
     testRequest() {
       var body = JSON.stringify(this.model);
@@ -104,23 +101,19 @@ readThis(inputValue: any): void {
       headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
       headers.append('Authorization', 'Bearer ' + this.hero.token);
 
-      console.log(body);
-
-
       this.http
         .post('http://windchatapi.3ie.fr/api/wind',
           body, {
             headers: headers
           })
           .subscribe(data => {
-              alert(JSON.stringify(data.json()));
+            alert("Your wind has been send")
           }, error => {
               alert(error.json().message);
           });
     }
 
-    checkedStudents(value) {
-        console.log(value);
+    checked(value) {
         if ((<HTMLInputElement>document.getElementById(value)).checked === true) {
             this.model.recipients.push(value);
         }
@@ -128,6 +121,5 @@ readThis(inputValue: any): void {
             let indexx = this.model.recipients.indexOf(value);
             this.model.recipients.splice(indexx,1)
         }
-        console.log(this.model.recipients)
     }
 }
