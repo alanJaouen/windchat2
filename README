@@ -1,0 +1,18 @@
+SUMARY
+	This project contains a web-app named "windchat". This web-app is a clone
+	of snapchat that I've done for the 3IE's 2016 recruiting session.
+
+
+INSTALL
+	You just need to do the following commands in the directory of the project
+		npm install
+		npm start
+
+
+DATE
+	17-12-2016
+
+
+AUTHORS
+	Alan Jaouen
+	alan.jaouen@epita.fr
