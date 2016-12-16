@@ -14,7 +14,7 @@
     "tsc:w": "tsc -w"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alan Jaouen",
   "license": "MIT",
   "dependencies": {
     "@angular/common": "~2.3.0",
@@ -26,7 +26,6 @@
     "@angular/platform-browser-dynamic": "~2.3.0",
     "@angular/router": "~3.3.0",
     "angular-in-memory-web-api": "~0.1.17",
-    "angular2-google-maps": "^0.16.0",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-rc.4",
