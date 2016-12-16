@@ -53,37 +53,16 @@ export class DisplayWindComponent implements OnInit {
       })
       .subscribe(data => {
         this.winds =<Hero[]>data.json();
-        console.log(JSON.stringify(data.json()));
-
       }, error => {
-        console.log(JSON.stringify(error.json()));
+        alert("error when trying to get wind");
       });
-        setTimeout(()=>{ console.log(this.winds);}, 3000);
-     
     }
 
     open(event) 
     {
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
-        headers.append('Authorization', 'Bearer ' + this.hero.token);
         var target = event.target || event.srcElement || event.currentTarget;
         var idAttr = target.attributes.id;
         var value = idAttr.nodeValue;
-        alert("seen: "+value);
         this.router.navigateByUrl("/show?id="+value);
-
-       /* this.http
-        .delete('http://windchatapi.3ie.fr/api/friend/' + value , {
-            headers: headers
-        })
-        .subscribe(data => {
-            alert('contact deleted');
-            console.log(JSON.stringify(data.json()));
-        }, error => {
-            alert('ERROR: contact not deleted');        
-            console.log(JSON.stringify(error.json()));
-        });*/
     }
 }

@@ -2,29 +2,22 @@
     <button (click)="reset()">refresh</button><br/>
     <ul >
         <li *ngFor="let f of winds" >
-            <div class="contact">
-                <div>
-                    <span>from {{f.userName}}</span>
-                </div>
-                <div class="pics">
-                    <img src={{f.pictureUrlSmall}}>
-                </div>
-               
-            </div>
             <ul>
                 <li *ngFor="let w of f.winds" >
-                    <div *ngIf="!w.isOpened" class="snap" style="background-color:purple">
+                    <div *ngIf="!w.isOpened" class="snap">
                         <div>
-                            <img id="w{{w.id}}" style="-webkit-filter: blur(8px);filter: blur(8px);" src={{w.imageUrlSmall}} >
+                            <img class="photo" id="w{{w.id}}" style="-webkit-filter: blur(8px);filter: blur(8px);" src={{w.imageUrlSmall}} >
                         </div>
                         <div class="mid">
-                            <p>
-                                {{w.sendDate}}<br/>
+                            <span>from <span class="name">{{f.userName}}</span></span><br/>
+                                <div class="pics">
+                                    <img src={{f.pictureUrlSmall}}>
+                                </div>
+                            <span>{{w.sendDate}}</span><br/>
                                 <button *ngIf="!w.isOpened" (click)="open($event)" id="{{w.id}}">open this wind</button>
-                            </p>
                         </div>
-                        <div>
-                            <img src="https://maps.googleapis.com/maps/api/staticmap?center={{w.latitude}},{{w.longitude}}&zoom=10&size=200x200&&markers=color:blue%7Clabel:S%7C{{w.latitude}},{{w.longitude}}&key=AIzaSyAeEd_VfhEy_aHzra-dT6EO6b4VrLXa_6s">
+                        <div class="map">
+                            <img src="https://maps.googleapis.com/maps/api/staticmap?center={{w.latitude}},{{w.longitude}}&zoom=9&size=200x200&&markers=color:red%7Csize:mid%7C{{w.latitude}},{{w.longitude}}&key=AIzaSyAeEd_VfhEy_aHzra-dT6EO6b4VrLXa_6s">
                         </div>
                     </div>
                 </li>        

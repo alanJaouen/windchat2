@@ -1,13 +1,13 @@
-.contact .pics {
-  width: 75px;
-  height: 75px;
+.pics {
+  width: 75px !important;
+  height: 75px !important;
   border-radius: 200px;
   border: 3px solid snow;
   overflow: hidden;
 }
 
-.contact .pics img {
-  width: 100%;
+.pics img {
+  width: 100% !important;
 }
 
 .contact div {
@@ -41,8 +41,16 @@ ul {
     max-width: 750px;
 }
 
-.container>ul>li {
-    margin-top: 20px; 
+
+.snap {
+    background-color: rgba(255, 255, 100, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.map {
+    padding: 1%;
 }
 
 .snap div
@@ -51,7 +59,7 @@ ul {
     display: inline-block;
 }
 
-.snap div img{
+.snap div img.photo{
     width: auto;
     max-height: 150px;
     padding-top: 10px;
@@ -60,16 +68,31 @@ ul {
 @media (max-width: 500px) {
     .snap div
     {
-        display: block;
+        padding-left: 5%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .map {
+        display: none !important;
     }
 }
 
-li {
-    border: 1px solid black;
-}
 
 .mid{
     position: relative;
     top:0;
     left: 0;
+}
+
+* {
+    vertical-align: middle;
+}
+
+.name {
+    color: snow;
+    font-size: medium;
+    font-weight: bold;
 }
