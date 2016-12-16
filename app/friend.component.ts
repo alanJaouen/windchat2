@@ -58,12 +58,9 @@ export class FriendComponent implements OnInit {
       })
       .subscribe(data => {
         this.friends =<Hero[]>data.json();
-        console.log(JSON.stringify(data.json()));
-
       }, error => {
-        console.log(JSON.stringify(error.json()));
+        alert(error.json().message);
       });
-        setTimeout(()=>{ console.log(this.friends);}, 3000);
      
     }
 
@@ -82,10 +79,8 @@ export class FriendComponent implements OnInit {
       })
       .subscribe(data => {
         alert('contact deleted');
-        console.log(JSON.stringify(data.json()));
       }, error => {
         alert('ERROR: contact not deleted');        
-        console.log(JSON.stringify(error.json()));
       });
     }
 
@@ -104,10 +99,9 @@ export class FriendComponent implements OnInit {
         })
         .subscribe(data => {
             this.friends =<Hero[]>data.json();
-            console.log(JSON.stringify(data.json()));
 
         }, error => {
-            alert(JSON.stringify(error.json()));
+            alert(error.json().message);
         });     
     }
 
@@ -126,10 +120,9 @@ export class FriendComponent implements OnInit {
         })
         .subscribe(data => {
             this.friends =<Hero[]>data.json();
-            console.log(JSON.stringify(data.json()));
 
         }, error => {
-            alert(JSON.stringify(error.json()));
+            alert(error.json().message);
         });     
     }
 
@@ -143,16 +136,14 @@ export class FriendComponent implements OnInit {
         headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
         headers.append('Authorization', 'Bearer ' + this.hero.token);
 
-        alert(value);
       this.http
         .post('http://windchatapi.3ie.fr/api/friend/',
           "{\"userName\": \""+ value +"\"}", {
             headers: headers
           })
           .subscribe(data => {
-                alert(JSON.stringify(data.json()));            
           }, error => {
-              console.log(JSON.stringify(error.json()));
+            alert(error.json().message);
           });
     }
 
@@ -165,18 +156,14 @@ export class FriendComponent implements OnInit {
         headers.append('Content-Type', 'application/json');
         headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
         headers.append('Authorization', 'Bearer ' + this.hero.token);
-
-        alert(value);
       this.http
         .put('http://windchatapi.3ie.fr/api/friend/'+ value +"/accept",
           "{\"isAccepted\": \""+ this.acept +"\"}", {
             headers: headers
           })
           .subscribe(data => {
-                alert(JSON.stringify(data.json()));            
           }, error => {
-              console.log(JSON.stringify(error.json()));
+            alert(error.json().message);
           });
     }
-
 }

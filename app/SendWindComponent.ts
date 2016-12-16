@@ -3,7 +3,7 @@ import { Http, Headers } from '@angular/http';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { Component, OnInit }      from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 
 import { Hero }         from './hero';
@@ -26,7 +26,8 @@ export class SendWindComponent implements OnInit {
     private heroService: HeroService,
     private route: ActivatedRoute,
     private location: Location,
-    private http:Http
+    private http:Http,
+    private router:Router
   ) {}
 
 
@@ -49,9 +50,6 @@ setPosition(position){
       };
   }
 
-  goBack(): void {
-    this.location.back();
-  }
 
  getfriends() {
     var headers = new Headers();
@@ -90,8 +88,6 @@ readThis(inputValue: any): void {
 
   onSubmit() {
       this.testRequest();
-      this.model = new Wind();
-      this.image = null;
   }
 
     testRequest() {
@@ -107,7 +103,7 @@ readThis(inputValue: any): void {
             headers: headers
           })
           .subscribe(data => {
-            alert("Your wind has been send")
+            this.router.navigateByUrl("/"); 
           }, error => {
               alert(error.json().message);
           });
