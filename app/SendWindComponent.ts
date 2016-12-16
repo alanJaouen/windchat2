@@ -81,7 +81,7 @@ readThis(inputValue: any): void {
   var myReader:FileReader = new FileReader();
 
   myReader.onloadend = (e) => {
-    this.model.image = myReader.result.substring(22,myReader.result.len);
+    this.model.image = myReader.result.split(/,(.+)/)[1]
     this.image = myReader.result;
   }
   myReader.readAsDataURL(file);

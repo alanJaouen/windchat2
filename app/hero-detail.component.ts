@@ -42,7 +42,7 @@ readThis(inputValue: any): void {
   var myReader:FileReader = new FileReader();
 
   myReader.onloadend = (e) => {
-    this.image2 = myReader.result.substring(22,myReader.result.len);
+    this.image2 = myReader.result.split(/,(.+)/)[1]
     this.image = myReader.result;
     this.imageb = true;
   }
@@ -63,7 +63,6 @@ readThis(inputValue: any): void {
         headers: headers
       })
       .subscribe(data => {
-        console.log(JSON.stringify(data.json()));
         this.hero.email=data.json().email;
         this.hero.id=data.json().id;
         this.hero.userName=data.json().userName;
@@ -74,7 +73,7 @@ readThis(inputValue: any): void {
         this.hero.subscribeDay=data.json().subscribeDay;
         this.imageb = false;
       }, error => {
-        console.log(JSON.stringify(error.json()));
+        alert(error.json().message);
       });
     }
 
@@ -89,10 +88,8 @@ readThis(inputValue: any): void {
       })
       .subscribe(data => {
         alert('account deleted');
-        console.log(JSON.stringify(data.json()));
       }, error => {
         alert('ERROR: account not deleted');        
-        console.log(JSON.stringify(error.json()));
       });
     }
 
@@ -125,13 +122,9 @@ readThis(inputValue: any): void {
             headers: headers
           })
           .subscribe(data => {
-                alert('ok');
-              console.log(JSON.stringify(data.json()));
               this.hero.pictureUrlSmall=data.json().pictureUrlSmall;
-
-              
           }, error => {
-              alert("Error while check credentials.")
+              alert(error.json().message);
           });
 
 

@@ -3,7 +3,7 @@ import { Http, Headers } from '@angular/http';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { Component, OnInit }      from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 
 import { Hero }         from './hero';
@@ -24,7 +24,8 @@ export class RegisterFormComponent implements OnInit {
     private heroService: HeroService,
     private route: ActivatedRoute,
     private location: Location,
-    private http:Http
+    private http:Http,
+    private router:Router
   ) {}
 
 
@@ -51,7 +52,7 @@ readThis(inputValue: any): void {
   var myReader:FileReader = new FileReader();
 
   myReader.onloadend = (e) => {
-    this.model.imageStr64 = myReader.result.substring(22,myReader.result.len);
+    this.model.imageStr64 = myReader.result.split(/,(.+)/)[1]
   }
   myReader.readAsDataURL(file);
 }
@@ -59,12 +60,9 @@ readThis(inputValue: any): void {
 
   onSubmit() {
       var obj =  JSON.stringify(this.model);
-      console.log(obj);
       this.testRequest();
       this.submitted = true;
      }
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
 
 
     testRequest() {
@@ -72,7 +70,6 @@ readThis(inputValue: any): void {
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
-      console.log(body);
 
 
       this.http
@@ -81,8 +78,9 @@ readThis(inputValue: any): void {
             headers: headers
           })
           .subscribe(data => {
-              alert(JSON.stringify(data.json()));
-              this.hero.isLog=false;
+              alert("Registration complete.");
+              this.router.navigateByUrl("/login"); 
+
           }, error => {
               alert(error.json().message);
           });
