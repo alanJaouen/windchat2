@@ -78,10 +78,11 @@ export class ShowWindComponent implements OnInit {
         console.log(JSON.stringify(data.json()));
 
         
-        setTimeout(()=>{ this.goBack()}, 11000);
         setInterval(()=>{ 
-          if (this.duration > 0)
+          if (this.duration > 1)
             this.duration = this.duration - 1 ; 
+          else
+            this.goBack();
         }, 1000);
         
 
