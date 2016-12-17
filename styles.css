@@ -285,3 +285,9 @@ nav a.active {
     left: 90%;
   }
 }
+
+#rul {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
