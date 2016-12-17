@@ -188,17 +188,6 @@ nav a.active {
   animation: loader 1s cubic-bezier(0.5, 0.1, 0.15, 1) alternate infinite;
 }
 
-@keyframes loader
-{
-  0%
-  {
-    letter-spacing: -1px;
-  }
-  100%
-  {
-    letter-spacing: 15px;
-  }
-}
 
 .banner::before
 {
@@ -229,34 +218,12 @@ nav a.active {
   animation: sub-banner-left 1s cubic-bezier(0.5, 0.1, 0.15, 1) alternate infinite;
 }
 
-@keyframes sub-banner-left
-{
-  0%
-  {
-    right: 82%;
-  }
-  100%
-  {
-    right: 90%;
-  }
-}
 
 .banner-right
 {
   animation: sub-banner-right 1s cubic-bezier(0.5, 0.1, 0.15, 1) alternate infinite;
 }
 
-@keyframes sub-banner-right
-{
-  0%
-  {
-    left: 82%;
-  }
-  100%
-  {
-    left: 90%;
-  }
-}
 
 .banner-left::before, .banner-right::before
 {
@@ -279,4 +246,42 @@ nav a.active {
 {
   right: -1px;
   border-right-color: #FACC00;
+}
+
+
+@keyframes loader
+{
+  0%
+  {
+    letter-spacing: -1px;
+  }
+  100%
+  {
+    letter-spacing: 15px;
+  }
+}
+
+
+@keyframes sub-banner-left
+{
+  0%
+  {
+    right: 82%;
+  }
+  100%
+  {
+    right: 90%;
+  }
+}
+
+@keyframes sub-banner-right
+{
+  0%
+  {
+    left: 82%;
+  }
+  100%
+  {
+    left: 90%;
+  }
 }
