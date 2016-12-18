@@ -1,5 +1,8 @@
-<div id="dura">
-    {{duration}}
+<div *ngIf="duration < 11" id="dura">
+    <div id="tps">{{duration}}</div>   
+<div class="timer">
+    <div class="mask"></div>
+</div>
 </div>
 <div class="container">
      <ul >

@@ -4,6 +4,7 @@ import { Component, OnInit, Input}      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { Http, Headers } from '@angular/http';
+import { MaterialModule, MdProgressCircle   } from '@angular/material';
 
 
 
@@ -21,8 +22,10 @@ export class ShowWindComponent implements OnInit {
   hero: Hero;
   winds: Hero[] = [];
   id: number;
-  duration: number = 10;
+  duration: number = 11;
   private subscription: Subscription;
+  interval: any;
+
 
   constructor(
     private heroService: HeroService,
@@ -54,12 +57,13 @@ export class ShowWindComponent implements OnInit {
       var idAttr = target.attributes.id;
       this.duration = idAttr.nodeValue;
       setTimeout(() => {
-        this.goBack();
+        //this.goBack();
       }, this.duration);
   }
 
 
   goBack(): void {
+    clearInterval( this.interval);
     this.opened();    
     this.location.back();
   }
@@ -78,11 +82,11 @@ export class ShowWindComponent implements OnInit {
         console.log(JSON.stringify(data.json()));
 
         
-        setInterval(()=>{ 
+        this.interval = setInterval(()=>{ 
           if (this.duration > 1)
             this.duration = this.duration - 1 ; 
-          else
-            this.goBack();
+          //else
+            //this.goBack();
         }, 1000);
         
 
@@ -103,10 +107,7 @@ export class ShowWindComponent implements OnInit {
         .put('http://windchatapi.3ie.fr/api/wind/' + this.id + '/open' , "", {
             headers: headers
         })
-        .subscribe(data => {
-        }, error => {
-          alert(JSON.stringify(error.json()));
-            console.log(JSON.stringify(error.json()));
+        .subscribe(error => {
         });
     }
 }
