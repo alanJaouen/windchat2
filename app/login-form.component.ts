@@ -54,7 +54,6 @@ export class LoginFormComponent implements OnInit {
       var headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
-      console.log(body);
 
 
       this.http
@@ -63,7 +62,6 @@ export class LoginFormComponent implements OnInit {
             headers: headers
           })
           .subscribe(data => {
-              console.log(JSON.stringify(data.json()));
               this.hero.email=data.json().email;
               this.hero.id=data.json().id;
               this.hero.userName=data.json().userName;
