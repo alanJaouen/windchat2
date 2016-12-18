@@ -37,7 +37,6 @@ button:disabled {
   cursor: auto;
 }
 body {
-  background-color: #FACC00;
   margin: 0;
 }
 
@@ -253,13 +252,13 @@ nav>a>img {
 .banner-left::before
 {
   left: -1px;
-  border-left-color: #FACC00;  
+  border-left-color: #FBC300;  
 }
 
 .banner-right::before
 {
   right: -1px;
-  border-right-color: #FACC00;
+  border-right-color: #FBC300;
 }
 
 
@@ -304,4 +303,14 @@ nav>a>img {
   position: fixed;
   bottom: 0;
   right: 0;
+}
+
+
+html {
+  min-height: 100%;
+  background: #facc00; /* Old browsers */
+background: -webkit-linear-gradient(#facc00 0%, #fcb400 100%);
+background: -o-linear-gradient(#facc00 0%, #fcb400 100%);
+background: linear-gradient(#facc00 0%, #fcb400 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#facc00', endColorstr='#fcb400',GradientType=0 ); /* IE6-9 */
 }

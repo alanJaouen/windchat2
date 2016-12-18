@@ -96,3 +96,13 @@ ul {
     font-size: medium;
     font-weight: bold;
 }
+
+
+#reload {
+    vertical-align: middle; 
+    height: 30px; 
+}
+
+#reload:hover {
+    transform: rotate(360deg) 2s;
+}
