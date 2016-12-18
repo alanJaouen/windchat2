@@ -56,9 +56,6 @@ export class ShowWindComponent implements OnInit {
       var target = event.target || event.srcElement || event.currentTarget;
       var idAttr = target.attributes.id;
       this.duration = idAttr.nodeValue;
-      setTimeout(() => {
-        //this.goBack();
-      }, this.duration);
   }
 
 
@@ -85,8 +82,8 @@ export class ShowWindComponent implements OnInit {
         this.interval = setInterval(()=>{ 
           if (this.duration > 1)
             this.duration = this.duration - 1 ; 
-          //else
-            //this.goBack();
+          else
+            this.goBack();
         }, 1000);
         
 

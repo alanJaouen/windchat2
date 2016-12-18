@@ -32,13 +32,15 @@ img {
     position: absolute;
     top:40px;
     left: 50px;
-     z-index: 9999;
+    z-index: 9999;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 ul {
-  list-style: none;
-  text-align: center;
-  padding: 0;
+    list-style: none;
+    text-align: center;
+    padding: 0;
 }
 
 
