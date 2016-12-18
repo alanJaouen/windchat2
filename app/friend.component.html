@@ -1,7 +1,7 @@
-<div class="container">
-    <button (click)="reset()">Show my friends</button>
-    <button (click)="showPendding()">Show pendding friends</button><br/>
-    <button (click)="showBloked()">Show bloked friends</button><br/>
+<div class="container" style="text-align: center">
+    <button style="width: 28%; margin-left: 1%; margin-right: 1%" (click)="reset()">My friends</button>
+    <button style="width: 28%; margin-left: 1%; margin-right: 1%" (click)="showPendding()">Pendding friends</button>
+    <button style="width: 28%; margin-left: 1%; margin-right: 1%" (click)="showBloked()">Bloked friends</button><br/>
     <input [(ngModel)]="name" placeholder="userName" />
     <button (click)="search()">Search new friends</button>
 
