@@ -107,6 +107,7 @@ nav a {
   background-color: #eee;
   border-radius: 4px;
   width: calc(100% - 30px);
+  vertical-align: middle;
 }
 nav a:visited, a:link {
   color: #607D8B;
@@ -117,6 +118,19 @@ nav a:hover {
 }
 nav a.active {
   color: #039be5;
+}
+
+nav a>img , nav a>p{
+  display: inline-block;
+}
+
+nav a>img {
+  height: 20px;
+}
+
+nav>a>img {
+  vertical-align:middle;
+  float:left;
 }
 
 /* items class */
