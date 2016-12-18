@@ -16,6 +16,7 @@ import { SendWindComponent }    from './SendWindComponent';
 import { DisplayWindComponent } from './display-wind.component';
 import { ShowWindComponent }    from './show-wind.component';
 import { Cam }                  from './cam.component';
+import { PasswordComponent }    from './password.component';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -42,7 +43,9 @@ import { CommonModule } from '@angular/common';
     SendWindComponent,
     DisplayWindComponent,
     ShowWindComponent,
-    Cam
+    Cam,
+    PasswordComponent
+    
   ],
   providers: [ HeroService ],
   bootstrap: [ AppComponent ]

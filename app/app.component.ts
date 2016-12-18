@@ -18,6 +18,7 @@ import { HeroService } from './hero.service';
       <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/login" (click)="menu = !menu;" routerLinkActive="active">Login</a><br/>
       <a *ngIf="!this.heroService.getHeros().isLog" routerLink="/register" (click)="menu = !menu;" routerLinkActive="active">Register</a><br/>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/detail" (click)="menu = !menu;" routerLinkActive="active">Account</a><br/>
+      <a *ngIf="this.heroService.getHeros().isLog" routerLink="/pass" (click)="menu = !menu;" routerLinkActive="active">Change password</a><br/>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/friends" (click)="menu = !menu;" routerLinkActive="active">Friends</a><br/>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/winds" (click)="menu = !menu;" routerLinkActive="active">Send winds</a><br/>
       <a *ngIf="this.heroService.getHeros().isLog" routerLink="/display" (click)="menu = !menu;" routerLinkActive="active">Display winds</a><br/><br/>
