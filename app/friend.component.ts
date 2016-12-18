@@ -23,6 +23,7 @@ export class FriendComponent implements OnInit {
   pendding:boolean = false;
   name:string;
   acept:string;
+  blocked:boolean;
 
   constructor(
     private heroService: HeroService,
@@ -48,6 +49,7 @@ export class FriendComponent implements OnInit {
     this.adding = false;
     this.show = true;
     this.pendding = false;
+    this.blocked = false;
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
@@ -89,6 +91,7 @@ export class FriendComponent implements OnInit {
         this.adding = false;
         this.show = false;
         this.pendding = true;
+        this.blocked = false;    
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
@@ -105,11 +108,34 @@ export class FriendComponent implements OnInit {
         });     
     }
 
+    showBloked()
+    {
+        this.adding = false;
+        this.show = false;
+        this.pendding = false;
+        this.blocked = true;
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
+        headers.append('Authorization', 'Bearer ' + this.hero.token);
+        this.http
+        .get('http://windchatapi.3ie.fr/api/friend/blockedList', {
+            headers: headers
+        })
+        .subscribe(data => {
+            this.friends =<Hero[]>data.json();
+
+        }, error => {
+            alert(error.json().message);
+        });     
+    }
+
      search()
     {
         this.adding = true;
         this.show = false;
         this.pendding = false;
+        this.blocked = false;        
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
@@ -162,6 +188,48 @@ export class FriendComponent implements OnInit {
             headers: headers
           })
           .subscribe(data => {
+          }, error => {
+            alert(error.json().message);
+          });
+    }
+
+    block(event)
+    {
+        var target = event.target || event.srcElement || event.currentTarget;
+        var idAttr = target.attributes.id;
+        var value = idAttr.nodeValue;
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
+        headers.append('Authorization', 'Bearer ' + this.hero.token);
+      this.http
+        .put('http://windchatapi.3ie.fr/api/friend/'+ value +"/block",
+          "{\"isBloked\": \"true\" }", {
+            headers: headers
+          })
+          .subscribe(data => {
+            alert("Contact blocked");
+          }, error => {
+            alert(error.json().message);
+          });
+    }
+
+    unblock(event)
+    {
+        var target = event.target || event.srcElement || event.currentTarget;
+        var idAttr = target.attributes.id;
+        var value = idAttr.nodeValue;
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('X-Api-Key', '{MQ1D7W@5O0-EYH4D9PPZC-6<2ZU8I6C0}');
+        headers.append('Authorization', 'Bearer ' + this.hero.token);
+      this.http
+        .put('http://windchatapi.3ie.fr/api/friend/'+ value +"/block",
+          "{\"isBloked\": \"false\" }", {
+            headers: headers
+          })
+          .subscribe(data => {
+            alert("Contact unblocked");            
           }, error => {
             alert(error.json().message);
           });

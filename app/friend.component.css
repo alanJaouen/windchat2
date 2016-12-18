@@ -35,6 +35,12 @@ li{
   width: 100%;
 }
 
+.contact>div>button 
+{
+  width: 60%;
+  margin-top:5%;
+}
+
 ul {
   list-style: none;
   text-align: center;

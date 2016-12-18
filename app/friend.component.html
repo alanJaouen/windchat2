@@ -1,6 +1,7 @@
 <div class="container">
     <button (click)="reset()">Show my friends</button>
-    <button (click)="showPendding()">Show pendding friend</button><br/>
+    <button (click)="showPendding()">Show pendding friends</button><br/>
+    <button (click)="showBloked()">Show bloked friends</button><br/>
     <input [(ngModel)]="name" placeholder="userName" />
     <button (click)="search()">Search new friends</button>
 
@@ -14,10 +15,12 @@
                 </div>
                 <div>
                     <span>{{f.userName}}</span><br/>
-                    <button *ngIf="show" (click)="delete($event)" id="{{f.id}}">Delete him</button>
-                    <button *ngIf="adding" (click)="becomeFriend($event)" id="{{f.userName}}">Become my friend</button>
-                    <button *ngIf="pendding" (click)="this.acept='true';accept($event)" id="{{f.id}}">Accept as friend</button>
-                    <button *ngIf="pendding" (click)="this.acept='false';accept($event)" id="{{f.id}}">Refuse as friend</button>
+                    <button *ngIf="show"        (click)="delete($event)" id="{{f.id}}">Delete him</button>
+                    <button *ngIf="show"        (click)="block($event)" id="{{f.id}}">Block him</button>
+                    <button *ngIf="adding"      (click)="becomeFriend($event)" id="{{f.userName}}">Become my friend</button>
+                    <button *ngIf="pendding"    (click)="this.acept='true';accept($event)" id="{{f.id}}">Accept as friend</button>
+                    <button *ngIf="pendding"    (click)="this.acept='false';accept($event)" id="{{f.id}}">Refuse as friend</button>
+                    <button *ngIf="bloked"      (click)="unblock($event)" id="{{f.id}}">Unblock</button>
                 </div>
             </div>
         </li>
