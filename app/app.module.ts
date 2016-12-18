@@ -9,6 +9,8 @@ import { DashboardComponent }   from './dashboard.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroesComponent }      from './heroes.component';
 import { HeroService }          from './hero.service';
+import { FacebookService }      from './facebook.service';
+import { FBComponent }    from './facebook.component';
 import { LoginFormComponent }   from './login-form.component';
 import { RegisterFormComponent }from './register-form.component';
 import { FriendComponent }      from './friend.component';
@@ -44,10 +46,12 @@ import { CommonModule } from '@angular/common';
     DisplayWindComponent,
     ShowWindComponent,
     Cam,
-    PasswordComponent
+    PasswordComponent,
+    FBComponent
     
   ],
-  providers: [ HeroService ],
+  providers: [ HeroService,
+  FacebookService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

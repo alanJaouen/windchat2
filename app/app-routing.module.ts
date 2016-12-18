@@ -11,6 +11,8 @@ import { SendWindComponent }    from './SendWindComponent';
 import { DisplayWindComponent } from './display-wind.component';
 import { ShowWindComponent } from './show-wind.component';
 import { PasswordComponent }    from './password.component';
+import { FBComponent }    from './facebook.component';
+
 
 
 
@@ -27,6 +29,7 @@ const routes: Routes = [
     { path: 'display',    component: DisplayWindComponent },
     { path: 'show',       component: ShowWindComponent },
     { path: 'pass',       component: PasswordComponent },
+    { path: 'fb',       component: FBComponent },
 ];
 
 @NgModule({
