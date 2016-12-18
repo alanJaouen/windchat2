@@ -64,7 +64,7 @@ export class PasswordComponent implements OnInit {
           })
           .subscribe(data => {
               console.log(JSON.stringify(data.json()));
-              alert("ok");
+              alert("Your password has been changed.");
               this.router.navigateByUrl("/"); 
           }, error => {
               alert("Error while changing password.")
